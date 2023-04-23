@@ -1,0 +1,43 @@
+class MyQueue {
+public:
+    stack<int> ak;
+    MyQueue() {
+    }
+    
+    void push(int x) {
+        ak.push(x);
+    }
+    
+    int pop() {
+        stack<int> aka;
+        while(ak.size()!=0){
+            aka.push(ak.top());
+            ak.pop();
+        }
+        int t=aka.top();
+        aka.pop();
+        while(aka.size()!=0){
+            ak.push(aka.top());
+            aka.pop();
+        }
+        return t;
+    }
+    
+    int peek() {
+        stack<int> aka;
+        while(ak.size()!=0){
+             aka.push(ak.top());
+            ak.pop();
+        }
+        int t= aka.top();
+        while(aka.size()!=0){
+            ak.push( aka.top());
+             aka.pop();
+        }
+        return t;
+    }
+    
+    bool empty() {
+        return ak.empty();
+    }
+};
